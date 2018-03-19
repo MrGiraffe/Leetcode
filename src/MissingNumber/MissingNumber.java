@@ -2,6 +2,7 @@ package MissingNumber;
 
 public class MissingNumber {
 
+    // M. How about divide in half idea?
     static public int missingNumber(int[] arr) {
         for (int i = 0; i < arr.length; i = i + 3) {
             if (!(arr[i] == arr[i + 2])) {
