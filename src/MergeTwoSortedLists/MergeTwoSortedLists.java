@@ -3,11 +3,15 @@ package MergeTwoSortedLists;
 
 
 public class MergeTwoSortedLists {
-
+    
     public static class ListNode {
+    // Everything should be public?
+    //Normally acessor methods etc should be present but fine for the interview I guess
         int val;
         ListNode next;
 
+        // Often people use same name for parameter and member variable and 
+        // for assignement use this.val = val;
         ListNode(int x) {
             val = x;
         }
@@ -15,7 +19,8 @@ public class MergeTwoSortedLists {
 
     public static ListNode mergeTwoLists(ListNode l1, ListNode l2) {
 
-
+        // Use better, longer variables. It is pretty hard to follow.
+        // One variable per line.
         ListNode l, head, tmp, buf = new ListNode(0);
 
         if (l1 == null) {
@@ -39,8 +44,11 @@ public class MergeTwoSortedLists {
         while (!(l.next == null)) {
 
             if (l.next.val <= tmp.val) {
+                // not sure if it is any optimization compare to the dump most and simple implementation
+                // What is the optimization? One assigment? Could be even worth if "else" branch is executed often.
                 l = l.next;
             } else {
+                // buf should rather be local variable to this scope.
                 buf = l.next;
                 l.next = tmp;
                 tmp = buf;
